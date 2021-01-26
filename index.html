@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+	<html lang="en" ng-app="my-app">
+		<head>
+			<title>Smart Bigasan App</title>
+			<meta charset="utf-8">
+			<link rel="stylesheet" href="css/onsenui.css" type="text/css">
+			<link rel="stylesheet" href="css/style.css" type="text/css">
+			<link rel="stylesheet" href="css/onsenui-fonts.css" type="text/css">
+			<link rel="stylesheet" href="css/onsen-css-components.css" type="text/css">
+			<link rel="stylesheet" href="css/onsenui-core.css" type="text/css">
+			<link rel="stylesheet" href="css/ionicons/css/ionicons.css" type="text/css">
+			<link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+
+			<script src="js/angular.min.js"></script>
+			<script src="js/onsenui.js"></script>
+			<script src="js/angular-onsenui.js"></script>
+			<script src="js/jquery-3.2.1.min.js"></script>
+			<script src="js/Chart.js"></script>
+			<script src="js/scriptChart.js"></script>
+			<script src="js/script.js"></script>.
+            <script src="js/jquery-ui.min.js"></script>
+
+		</head>
+
+		<body>
+			<ons-navigator swipeable id="myNavigator" page="landing-template.html"></ons-navigator>
+
+			<!--Landing Page-->
+			<template id="landing-template.html" class="logoBackground">
+				<ons-page id="landing-page" modifier="full_bg" ng-controller="PageController">
+				  <div class="profile-pic">
+				  	<img src="img/ProjectLogo.png" width="450px;">
+				  </div>
+				  <p style="text-align: center">
+				    <ons-button style="background-color: #659d2a;" class="btnSize" id="btnLogIn-page">Log In</ons-button>
+				  	<!-- <ons-button style="background-color: #659d2a;" class="btnSize" id="btnRegister-page">Register</ons-button> -->
+				  </p>
+				</ons-page>
+			</template>
+		
+			
+
+			<!--Registration Page-->
+			<template id="signup-page.html">
+			  <ons-page id="signup-page">
+			  	<ons-toolbar>
+			      <div class="center"></div>
+			    </ons-toolbar>
+			    <p style="text-align: center">
+			    	<div style="text-align: center; margin-top: 30px;">
+					    <p>
+					      <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
+					    </p>
+					    <p>
+					      <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
+					    </p>
+					    <p style="margin-top: 30px;">
+					    	<ons-button style="background-color: #659d2a;" onclick="register()">Register</ons-button>
+			    			<ons-button style="background-color: #659d2a;" id="btnSignUpBack-page">Back</ons-button>
+					    </p>
+					  </div>
+			    </p>
+			    
+			  </ons-page>
+			</template>
+
+
+			<!--Log In Page-->
+			<template id="logIn-page.html">
+			  <ons-page id="logIn-page">
+			  	<ons-toolbar>
+			      <div class="center"></div>
+			    </ons-toolbar>
+			    <p style="text-align: center">
+					<div style="text-align: center; margin-top: 30px;">
+						<p>
+					   		<ons-input id="username" modifier="underbar" placeholder="USERNAME" float></ons-input>
+					    </p>
+					    <p>
+					      <ons-input id="password" modifier="underbar" type="password" placeholder="PASSWORD" float></ons-input>
+					    </p>
+					    <p style="margin-top: 30px;">
+					      <ons-button style="background-color: #659d2a;" id="btnLogInValidate" class="btnSize">Log in</ons-button>
+					      <ons-button style="background-color: #659d2a;" id="btnLogInBack-page" class="btnSize">Back</ons-button>
+					    </p>
+					</div>
+			    </p>
+	
+			  </ons-page>
+			</template>
+
+			<template id="welcome-template.html">
+			  <ons-page id="welcome-page">
+			  		<ons-toolbar>
+			  			<div class="center"></div>
+			  			<div class="right">
+					      <ons-toolbar-button id="btnLogOut">
+					        <ons-icon icon="ion-power" style="color: #659d2a"></ons-icon>
+					      </ons-toolbar-button>
+				    	</div>
+			  		</ons-toolbar>
+				 	<ons-tabbar swipeable position="auto">
+					    <ons-tab page="aboutStorage.html" label="Smart Bigasan" icon="ion-ios-home-outline" active-icon="ion-ios-home" badge="" active>
+					    </ons-tab>
+					    <ons-tab page="readings.html" label="Readings" icon="ion-ios-cloud-outline" active-icon="ion-cloud">
+					    </ons-tab>
+					    <ons-tab page="history.html" label="History" icon="ion-ios-folder-outline" active-icon="ion-folder">
+					    </ons-tab>
+					    <ons-tab page="aboutRate.html" label="R.A.T.E" icon="ion-ios-eye-outline" active-icon="ion-ios-eye">
+					    </ons-tab>
+				  </ons-tabbar>
+				</ons-page>
+			</template>
+
+			<template id="aboutStorage.html">
+			  <ons-page id="aboutStorage-page" modifier="full_bg">
+			  	<ons-card>
+			      <div class="title">Overview of Smart Bigasan</div>
+			      <div class="content">Rice is one of the major food crop in the Philippines. In fact, in year 2010, Philippines became the 8th largest rice producers in the world, yet many farmers still belong to the poverty line of the country. One of the causes of this low income is the production of low quality rice. Based on the research, rice losses its quality during the storage period that is why proper and effective storing of rice is important. Unfortunately, people from the ice industry didn’t know the qualitative losses of rice. Poor rice storage can lead to an undesirable domino affect cases not only to the farmers but also to consumers. Improper storage attracts pests and parasite which leads to low quality rice while low quality rice affects the sale of the farmers.</div>
+			    </ons-card>
+
+			    <ons-card>
+				    <div class="title">IoT Based Rice Storage Unit</div>
+				      <div class="content">To help solve the problem, the proponents studied and developed a storage system that is not just capable of storing rice but also can monitor and maintain rice quality. It can measure rice quantity and quality using sensors that are integrated in Raspberry Pi. This project cannot only monitor rice but also maintain its quality using ventilation. All data from the sensors can be viewed through a mobile app in a real-time scenario. Smart Bigasan can also send warnings and alerts via SMS. With this applied technology in rice agriculture, we can help our farmers to serve rice at its best.</div>
+			    </ons-card>
+
+			    <ons-card>
+				    <div class="title">Rice Moisture Content</div>
+				      <div class="content">According to IRRI, in storage period, the maintaining moisture content is less than 12% for seed storage and 14% for grain storage. And once the rice is milled, 13%-14% of moisture content must be achieved. This requirements is only applicable to Philippines which is a tropical country. Other countries may have different measurements of MC.</div>
+			    </ons-card>
+
+			    <ons-card>
+				    <div class="title">Proper Rice Storage</div>
+				      <div class="content">The purpose of any grain storage facility is to provide safe storage conditions for the grain to prevent grain loss. Good storage systems include (1) protection from insects, rodents and birds, (2) ease of loading and unloading, (3) efficient use of space, (4) ease of maintenance and management, and (5) prevention of moisture re-entering the grain after drying.</div>
+			    </ons-card>
+
+			  </ons-page>
+			</template>
+
+			<template id="readings.html">
+			  <ons-page id="readings-page">
+			  	<ons-carousel fullscreen swipeable auto-scroll overscrollable id="carousel">
+				    <ons-carousel-item style="background-color: #fff;">
+				    	<ons-card>
+			      			<div style="text-align: center;color: #659d2a;" class="title">Realtime &deg;C Readings</div>
+			      		</ons-card>
+				      <div style="text-align: center; margin-top: 10px; color: #fff;">
+						<script src="js/initializeFirebaseTemp.js"></script>
+						<canvas id="tempCanvass" width="100" height="100"></canvas>
+				        <h1 id="temperature" style="color: #659d2a"> Current Temperature</h1>
+				      </div>
+				    </ons-carousel-item>
+				    <ons-carousel-item style="background-color: #fff;">
+				    	<ons-card>
+			      			<div style="text-align: center;color: #f3a215;" class="title">Current Humidity Readings</div>
+			      		</ons-card>
+				      <div style="text-align: center; margin-top: 10px; color: #fff;">
+				      	<script src="js/initializeFirebaseHumid.js"></script>
+				      	<canvas id="humidCanvass" width="100" height="100"></canvas>
+				        <h1 id="humidity" style="color: #f3a215">Current Humidity</h1>
+				      </div>
+				    </ons-carousel-item>
+				    <ons-carousel-item style="background-color: #fff;">
+				    	<ons-card>
+			      			<div style="text-align: center;color: #7e57c2;" class="title">Current Weight Readings</div>
+			      		</ons-card>
+				      <div style="text-align: center; margin-top: 10px; color: #fff;">
+				      	<script src="js/InitializeFirebaseWeight.js"></script>
+				      	<canvas id="weightCanvass" width="100" height="100"></canvas>
+				        <h1 id="weight" style="color: #7e57c2">Current Weight</h1>
+				      </div>
+				    </ons-carousel-item>
+				  </ons-carousel>
+			  </ons-page>
+			</template>
+
+			<template id="history.html">
+			  <ons-page id="history-page">
+			  	<ons-card>
+			    	<div style="text-align: center;color: #659d2a;" class="title">Data History Readings</div>
+			    </ons-card>
+			  	<script src="js/history.js"></script>
+					<div class="centered">
+						<div class="group">
+							<input type="text" id="historyFrom" required="required"/>
+							<label for="historyFrom">DATE</label>
+							<div class="bar"></div>
+						</div>
+				    	<div style="text-align: center; margin-top: 10px;">
+						    <p>
+								<ons-button style="background-color: #659d2a;" id="btnHistory" class="btnSize">Search</ons-button>
+						    </p>
+						</div>
+						<canvas id="historyTempCanvass" width="1000" height="1000"></canvas>
+				        <ons-card>
+			      			<div style="text-align: center;color: #659d2a;" class="title">Chart History Temperature Readings</div>
+			      		</ons-card>
+				        <canvas id="historyHumidCanvass" width="1000" height="1000"></canvas>
+				        <ons-card>
+			      			<div style="text-align: center;color: #f3a215;" class="title">Chart History Humidity Readings</div>
+			      		</ons-card>
+				        <canvas id="historyWeightCanvass" width="1000" height="1000"></canvas>
+				        <ons-card>
+			      			<div style="text-align: center;color: #7e57c2;" class="title">Chart History Weight Readings</div>
+			      		</ons-card>
+					</div>
+			  </ons-page>
+			</template>
+
+			<template id="aboutRate.html">
+			  <ons-page id="aboutRate-page" modifier="full_bg" ng-controller="PageController">
+			  	<ons-card>
+				    <div class="title">Who Are We?</div>
+				      <div class="content">
+				      	Rice Agriculture Technology Enthusiasts (R.A.T.E) is a group of agritech students who inspire to help the rice farmers and dealers in order to sustain the high quality rice at the Philippines. With the help of R.A.T.E, farmers will be educated and be introduce on the technology industry.
+				      </div>
+			    </ons-card>
+
+			    <ons-card>
+				    <div class="title">Where Do We Located?</div>
+				      <div class="content">
+				      	Tanauan City, Batangas Philippines, 4232
+				      </div>
+			    </ons-card>
+
+			    <ons-card>
+				    <div class="title">Email Address</div>
+				      <div class="content">
+				      	rate.smartbigasan@gmail.com 
+				      </div>
+			    </ons-card>
+
+			    <ons-card>
+				    <div class="title">Mobile Number</div>
+				      <div class="content">
+				      	+639284105104 
+				      </div>
+			    </ons-card>
+
+			  </ons-page>
+			</template>
+			<script>
+			    var module = angular.module('my-app', ['onsen']);
+			    module.controller('PageController', function($scope) {
+			      $scope.alert = function(message) {
+			        ons.notification.alert(message);
+			      };
+			    });
+			</script>
+			<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+		</body>
+	</html>
